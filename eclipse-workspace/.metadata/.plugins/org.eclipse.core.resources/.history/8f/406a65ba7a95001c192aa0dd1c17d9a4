@@ -1,0 +1,5 @@
+package com.cg.spring.example;
+
+public class UserController {
+
+}

@@ -1,0 +1,21 @@
+package com.project.student.dao;
+
+import java.util.List;
+
+import com.project.student.entities.Student;
+import com.project.student.exceptions.AddStudentNotSuccessException;
+import com.project.student.exceptions.RollNoNotFoundException;
+import com.project.student.model.StudentDTO;
+
+public interface StudentDao {
+
+	public abstract Student addStudent(StudentDTO studentdto) throws AddStudentNotSuccessException;
+
+	//public abstract Student getByStudentRollNo(String studentRollNo);
+
+	//public abstract Student saveStudent(Student std);
+
+	public abstract Student fetchStudentDetails(String studentRollNo) throws RollNoNotFoundException;
+
+
+}

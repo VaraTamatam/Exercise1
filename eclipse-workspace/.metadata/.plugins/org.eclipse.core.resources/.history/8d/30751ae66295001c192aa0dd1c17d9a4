@@ -1,0 +1,117 @@
+package com.example.demo.entity;
+
+
+@Entity
+public class Student {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int Id;
+	
+	//@NotNull
+	private String studentRollNo;
+	
+	//@NotNull
+	private String studentFirstName;
+	
+	//@NotNull
+	private String studentLastName;
+	
+	//@NotNull @Email(message="enter crct formate")
+	private String studentEmail;
+	
+	//@NotNull(message="should not be null")
+	private String gender;
+	
+	//@NotNull
+	private String phoneNo;
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Student(int Id,String studentRollNo, String studentFirstName, String studentLastName, String studentEmail, String gender,
+			String phoneNo) {
+		super();
+		this.Id=Id;
+		this.studentRollNo = studentRollNo;
+		this.studentFirstName = studentFirstName;
+		this.studentLastName = studentLastName;
+		this.studentEmail = studentEmail;
+		this.gender = gender;
+		this.phoneNo = phoneNo;
+	}
+	
+	
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+
+	public String getStudentRollNo() {
+		return studentRollNo;
+	}
+
+	public void setStudentRollNo(String studentRollNo) {
+		this.studentRollNo = studentRollNo;
+	}
+
+	public String getStudentFirstName() {
+		return studentFirstName;
+	}
+
+	public void setStudentFirstName(String studentFirstName) {
+		this.studentFirstName = studentFirstName;
+	}
+
+	public String getStudentLastName() {
+		return studentLastName;
+	}
+
+	public void setStudentLastName(String studentLastName) {
+		this.studentLastName = studentLastName;
+	}
+
+	public String getStudentEmail() {
+		return studentEmail;
+	}
+
+	public void setStudentEmail(String studentEmail) {
+		this.studentEmail = studentEmail;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [Id=" + Id + ", studentRollNo=" + studentRollNo + ", studentFirstName=" + studentFirstName
+				+ ", studentLastName=" + studentLastName + ", studentEmail=" + studentEmail + ", gender=" + gender
+				+ ", phoneNo=" + phoneNo + "]";
+	}
+
+}

@@ -1,0 +1,72 @@
+package com.project.student.daoimpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.project.student.dao.StudentDao;
+import com.project.student.entities.Student;
+import com.project.student.exceptions.AddStudentNotSuccessException;
+import com.project.student.exceptions.RollNoNotFoundException;
+import com.project.student.model.StudentDTO;
+import com.project.student.repository.StudentRepository;
+import com.project.student.utils.StudentUtils;
+
+
+@Repository
+@Transactional
+public class StudentDaoImpl implements StudentDao{
+	
+	
+	@Autowired
+	StudentRepository stdRepo;
+
+	@Override
+	public Student addStudent(StudentDTO studentdto) throws AddStudentNotSuccessException {
+		// TODO Auto-generated method stub
+		Student std=stdRepo.save(StudentUtils.convertToStudent(studentdto));
+	   if(std != null) {
+		  // StudentDTO stddto=StudentUtils.convertToStudentDto(std);
+		  
+		   return std;
+	   }else {
+			throw new AddStudentNotSuccessException("Student details Not Added");
+		}
+	   
+	}
+	@Override
+	public Student fetchStudentDetails(String studentRollNo) throws RollNoNotFoundException {
+		// TODO Auto-generated method stub
+		//stdRepo.findByStudentRollNo(studentRollNo)
+		if(stdRepo.findByStudentRollNo(studentRollNo) != null) {
+			return stdRepo.findByStudentRollNo(studentRollNo);
+		}else {
+			throw new RollNoNotFoundException("Roll no Not Found");
+		}
+	}
+
+
+	/*@Override
+	public Student getByStudentRollNo(String studentRollNo) {
+		// TODO Auto-generated method stub
+		
+		Student stud=stdRepo.findByStudentRollNo(studentRollNo);
+		
+		if(stud != null) {
+			return stud;
+		}else {
+			return null;
+		}
+	}
+
+	/*@Override
+	public Student saveStudent(Student std) {
+		// TODO Auto-generated method stub
+		return stdRepo.save(std);
+	}*/
+
+	
+	
+}

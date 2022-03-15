@@ -1,0 +1,34 @@
+package com.example.demo.entity;
+
+
+@Entity
+public class Student {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int Id;
+	
+	//@NotNull
+	private String studentRollNo;
+	
+	//@NotNull
+	private String studentFirstName;
+	
+	//@NotNull
+	private String studentLastName;
+	
+	//@NotNull @Email(message="enter crct formate")
+	private String studentEmail;
+	
+	//@NotNull(message="should not be null")
+	private String gender;
+	
+	//@NotNull
+	private String phoneNo;
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
